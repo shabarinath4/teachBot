@@ -3,7 +3,7 @@ import replicate
 import os
 
 # App title
-st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
+st.set_page_config(page_title="🦙💬 Robotics Teachbot")
 
 # Replicate Credentials
 with st.sidebar:
@@ -36,7 +36,7 @@ st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 # Function for generating LLaMA2 response
 # Refactored from https://github.com/a16z-infra/llama2-chatbot
 def generate_llama2_response(prompt_input):
-    string_dialogue = "You are a helpful assistant. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
+    string_dialogue = "You are a teach assistant for robotics. You only answer questions on robotics. If you do not know the answer write "I do not know answer to this question". You are teaching children between ages 8-12, so keep the answers simple. Give links to external websites with detailed explanations. You do not respond as 'User' or pretend to be 'User'. You only respond once as 'Assistant'."
     for dict_message in st.session_state.messages:
         if dict_message["role"] == "user":
             string_dialogue += "User: " + dict_message["content"] + "\n\n"
